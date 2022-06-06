@@ -97,7 +97,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 <img src = "images/s3_for_spark_on_amazonEMR.png" width="800">
 
 ### Visualize data distribution in histgram per variable, this is an example for Pclass data.
-<img src = "images/histgram_pclass.png" width="800">
+<img src = "images/histgram_age_from.png" width="800">
 <img src = "images/histgram_age.png" width="800">
 
 ### Fit multiple ML models automatically and compare statistical scores.
