@@ -11,13 +11,13 @@ Output metrics help users select the most and least successful models for a give
 Automl EMR runs AutoML functionalities on Amazon EMR. Please read the instructions in this document below.
 
 # Why Amazon EMR?
-* Scalability and flexibility
+Scalability and flexibility:
 EMR is a managed service which provides flexibility to scale your cluster up or down as your computing needs change. You can resize your cluster to add instances for peak workloads and remove instances to control costs when peak workloads subside.
-* AWS integration
+AWS integration:
 EMR integrates with other AWS services to provide capabilities and functionality related to networking, storage, security, and so on, for your cluster. For example, S3 can store EMR input and output data.
-* Deployment
+Deployment:
 EMR provides a variety of ways to configure software on users cluster as well as versions. For example, AutoML EMR applies emr-6.6.0, Hadoop 3.2.1, and Spark 3.2.0. EMR uses Amazon Linux where users can install software on users’ cluster manually using the yum or pip package manager.
-* Cost savings
+Cost savings:
 EMR pricing depends on the instance type and number of EC2 instances users selected. Spot or reserved instances reduce the cost.
 
 # Output view and metrics
@@ -30,9 +30,14 @@ Our target users are those who want to analyze data and have the results represe
 To run the AutoML EMR application, users should download required libraries and run Python modules (see instructions in README.md).
 
 # Data sources
-Comma-separated value (CSV) files can be uploaded onto AutoML EMR. 
-Users can test the application with titanic.csv (https://www.kaggle.com/c/titanic/data?select=train.csv) and heart.csv (https://www.kaggle.com/zhaoyingzhu/heartcsv?select=Heart.csv) for Spark in Local, and PS_20174392719_1491204439457_log.csv (https://www.kaggle.com/datasets/ealaxi/paysim1) for Spark on AutoML EMR, which are provided as sample data sources in the sample folder. 
-A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so on in Spark in Local or as 1.parquet, 2.parquet, and so on in S3 buckets depending on which applications you choose to run. These internal files are used for the system to proceed ML modeling.
+Comma-separated value (CSV) files can be uploaded for Spark in local or Spark on Amazon EMR. 
+Users can test the application with for Spark in Local (small files)
+* titanic.csv (https://www.kaggle.com/c/titanic/data?select=train.csv)
+* heart.csv (https://www.kaggle.com/zhaoyingzhu/heartcsv?select=Heart.csv)
+for Spark on Amazon EMR (large files)
+* PS_20174392719_1491204439457_log.csv (https://www.kaggle.com/datasets/ealaxi/paysim1) 
+
+A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so on for Spark in Local or as 1.parquet, 2.parquet, and so on in S3 buckets for Spark on Amazon EMR depending on which applications you choose to run. These internal files are used for the system to proceed ML modeling.
 
 # Install on your mac
 
@@ -104,15 +109,39 @@ Not applied category variables - too many unique values
 * Increase the number of comparable ML models
 * Add functions to tune multiple parameters by grid search.
 
-# Spark
+# Run AutoML EMR locally
+### Set code in python3.9 virtual environment with S3 bucket setting
+```
+cd (go to your workfolder, i.e. automlemr)
+git clone https://github.com/ykmorimoto/automl-emr.git
+cd automlemr
+python3.9 -m venv .
+source ./bin/activate
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
+
+cp settings_template.py settings.py
+# fill AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_ID, AWS_REGION and S3_BUCKET in the settings.py so that easy-automl app can access s3
+# this access key needs to have the permission of handling the designated S3_BUCKET
+
+python3.9 init_db.py
+python3.9 app.py
+```
+### Run AutoML EMR locally
+```
+#access http://127.0.0.1:5000 via your browser
+```
+
+# Run AutoML EMR in Spark on EMR
 
 ### Build Amazon EMR Cluster
 
+* Look at EMR setting & Demo in my presentaiton slides: https://docs.google.com/presentation/d/1doagpXgBvPBksNBslxt_LUpLSDcrlY-iU5xqiIQngpE/edit#slide=id.p1
 * Select emr-6.6.0 (Hadoop 3.2.1/Spark3.2.0)
 * Steps (step type == Spark application)
 * Edit security group of ec2@master node (5000 for Local, 18080 for Spark UI for log)
 
-### Install
+### Installation
 
 * Update sqlite3
 ```
@@ -148,7 +177,7 @@ sudo make altinstall
 * Configure automl app
 ```
 cd ~
-git clone git@github.com:ykmorimoto/automl-emr.git
+git clone https://github.com/ykmorimoto/automl-emr.git
 cd automl-emr
 python3.9 -m venv .
 source ./bin/activate
