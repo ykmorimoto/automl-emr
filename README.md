@@ -92,6 +92,7 @@ python app.py
 ![manage dataset](images/manage_dataset.png)
 * Provide useful comments to check data quality (missing value, uniques, and outliers)
 ![data quality](images/data_quality.png)
+![data quality](images/data_quality.jpeg)
 * Visualize data distribution per variable to understand data
 Applied category variables
 ![histgram](images/histgram_pclass.png)
