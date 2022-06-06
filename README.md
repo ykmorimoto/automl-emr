@@ -42,6 +42,12 @@ For Spark on Amazon EMR (large file sample)
 
 A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so on for Spark in Local or as 1.parquet, 2.parquet, and so on in S3 buckets for Spark on Amazon EMR depending on which applications you choose to run. These internal files are used for the system to proceed ML modeling.
 
+# Target variables
+The variable that Easy AutoML recommends from a list of prospects is the target (predictor) variable selected for ML modeling.
+
+# Category variables
+
+
 # Install on your mac
 
 ```
@@ -89,32 +95,31 @@ python app.py
 ```
 
 # Features
-### Register csv datasets and manage experiment variables per dataset
+### Register CSV datasets via Spark in Local for small files and Spark on Amazon EMR for large files
 ![manage dataset](images/manage_dataset.png)
 ### Provide useful comments to check data quality (missing value, uniques, and outliers)
 ![data quality](images/data_quality.png)
-* Default selected string-type values, select appropriate values for "Category Variables", and set inappropriate values in "Unused Variables for Modeling". 
+### Sample output with titanic.csv, default already selected string-type values. Select a value for "Target", re-select appropriate values for "Category Variables", and inappropriate values for "Unused Variables for Modeling". 
 ![data quality](images/data_quality2.png)
-* Uploaded large file via Spark on AmazonEMR, then selected string-type values, select appropriate values for "Category Variables", and set inappropriate values in "Unused Variables for Modeling". 
+### Sample output with fraud data named PS_20174392719_1491204439457_log.csv. Large files can be ML modeling by Spark on Amazon EMR, but it takes longer times to be completed.
 ![data quality](images/data_quality_fraud.png)
-* If you uploaded files via Spark on Amazon EMR, files have been uploaded into S3 bucket.
+### If you upload files via Spark in Local, uploaded files are stored into data folder, but if you upload files via Spark on Amazon EMR, files are uploaded into S3 bucket.
 ![data quality](images/s3_for_spark_on_amazonEMR.png)
-* Visualize data distribution per variable to understand data
-Applied category variables
+### Visualize data distribution in histgram per variable, this is an example for Pclass data.
 ![histgram](images/histgram_pclass.png)
-Not applied category variables - too many missing values
+### Visualize data distribution in histram per variable, this age data should not be applied for ML modeling because too many missing values
 ![histgram](images/histgram_age.png)
-Not applied category variables - too many unique values
+### Not applied category variables - too many unique v
 ![metrics](images/data_clearning_for_category_variables.png) 
-* Fit multiple ML models automatically and compare statistical scores
+### Fit multiple ML models automatically and compare statistical scores
 ![metrics](images/metrics.png)
-* Fit multiple ML models automatically and compare statistical scores
+### Fit multiple ML models automatically and compare statistical scores
 ![metrics](images/metrics_for_amazonEMR.png)
-* Display ML models in graph for Spark in Local
+### Display ML models in histgram for Spark in Local
 ![explainable ai](images/explainable_ai.png)
-* Display ML models in graph for Spark in Local
+### Display ML models in histgram for Spark in Local
 ![explainable ai](images/explainable_ai_lightGBM.png)
-* Display ML models in graph for Spark in Local
+### Display ML models in histgram for Spark in Local
 ![explainable ai](images/explainable_ai_gradientBoosting.png)
 
 # Future enhancement
