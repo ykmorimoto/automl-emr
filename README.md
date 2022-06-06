@@ -89,19 +89,16 @@ python app.py
 ```
 
 # Features
-* Register csv datasets and manage experiment variables per dataset
+### Register csv datasets and manage experiment variables per dataset
 ![manage dataset](images/manage_dataset.png)
-* Provide useful comments to check data quality (missing value, uniques, and outliers)
+### Provide useful comments to check data quality (missing value, uniques, and outliers)
 ![data quality](images/data_quality.png)
 * Default selected string-type values, select appropriate values for "Category Variables", and set inappropriate values in "Unused Variables for Modeling". 
 ![data quality](images/data_quality2.png)
-
 * Uploaded large file via Spark on AmazonEMR, then selected string-type values, select appropriate values for "Category Variables", and set inappropriate values in "Unused Variables for Modeling". 
-![data quality](images/data_quality_fraund.png)
-
+![data quality](images/data_quality_fraud.png)
 * If you uploaded files via Spark on Amazon EMR, files have been uploaded into S3 bucket.
 ![data quality](images/s3_for_spark_on_amazonEMR.png)
-
 * Visualize data distribution per variable to understand data
 Applied category variables
 ![histgram](images/histgram_pclass.png)
@@ -111,8 +108,14 @@ Not applied category variables - too many unique values
 ![metrics](images/data_clearning_for_category_variables.png) 
 * Fit multiple ML models automatically and compare statistical scores
 ![metrics](images/metrics.png)
+* Fit multiple ML models automatically and compare statistical scores
+![metrics](images/metrics_for_amazonEMR.png)
 * Display ML models in graph for Spark in Local
 ![explainable ai](images/explainable_ai.png)
+* Display ML models in graph for Spark in Local
+![explainable ai](images/explainable_ai_lightGBM.png)
+* Display ML models in graph for Spark in Local
+![explainable ai](images/explainable_ai_gradientBoosting.png)
 
 # Future enhancement
 
