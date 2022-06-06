@@ -49,8 +49,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 ### Category variables
 * As a default, AutoML EMR detects variables that cannot be used for ML modeling because they are non-numerical expressions, such as cabin (C85, C123, etc.), embarked (S, C, and Q), name (Braund, Mr. Owner Harris, etc.), sex (male and female), and ticket (AJ5 21171, 113803, etc.). ]
 * In addition to default detection, the selection of more category variables is necessary. These variables should be assigned numerical expressions 1 or 0, and one of them is dropped by get_dummies function with drop_first = True.
-
-![metrics](images/data_clearning_for_category_variables.png) 
+<img src = "images/data_clearning_for_category_variables.png" width="800">
 
 ### Unused variables 
 * By default, AutoML EMR identifies variables that are inappropriate for use in ML modeling, such as those with an excessive number of missing values, too many unique values, and so on. Aside from carrying out default detection, users are required to select more unused variables on the basis of their decisions.
