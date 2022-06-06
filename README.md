@@ -98,7 +98,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 
 ### Visualize data distribution in histgram per variable, this is an example for Pclass data.
 <img src = "images/histgram_pclass.png" width="800">
-<img src = "images/histgram_pclass2.png" width="800">
+<img src = "images/histgram_age.png" width="800">
 
 ### Fit multiple ML models automatically and compare statistical scores.
 <img src = "images/metrics.png" width="800">
