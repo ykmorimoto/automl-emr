@@ -91,7 +91,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 <img src = "images/data_quality2.png" width="800">
 
 ### Sample output with fraud data named PS_20174392719_1491204439457_log.csv. Large files can be ML modeling by Spark on Amazon EMR, but it takes longer times to be completed.
-<img src = "images/data_quality_fraud.png" width="800">
+<img src = "images/data_fraud.png" width="800">
 
 ### If you upload files via Spark in Local, uploaded files are stored into data folder, but if you upload files via Spark on Amazon EMR, files are uploaded into S3 bucket.
 <img src = "images/s3_for_spark_on_amazonEMR.png" width="800">
