@@ -124,7 +124,7 @@ pip3 install --upgrade pip
 pip3 install -r requirements.txt
 
 cp settings_template.py settings.py
-# fill AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_ID, AWS_REGION and S3_BUCKET in the settings.py so that easy-automl app can access s3
+# fill AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_ID, AWS_REGION and S3_BUCKET in the settings.py so that automl-emr app can access s3
 # this access key needs to have the permission of handling the designated S3_BUCKET
 
 python3.9 init_db.py
@@ -142,6 +142,7 @@ python3.9 app.py
 * Look at EMR setting & Demo in my presentaiton slides: https://docs.google.com/presentation/d/1doagpXgBvPBksNBslxt_LUpLSDcrlY-iU5xqiIQngpE/edit#slide=id.p1
 * Select emr-6.6.0 (Hadoop 3.2.1/Spark3.2.0)
 * Steps (step type == Spark application)
+* EBS Root Volume 30 GiB or larger
 * Edit security group of ec2@master node (5000 for Local, 18080 for Spark UI for log)
 
 ### Installation
@@ -188,7 +189,8 @@ pip3 install --upgrade pip
 pip3 install -r requirements.txt
 
 cp settings_template.py settings.py
-# fill AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_ID, AWS_REGION and S3_BUCKET in the settings.py so that AutoML EMR app can access s3
+# go open IAM in AWS Management Console, go to "Users" to set a new user name with Acess Key
+# using the above Access Key, fill AWS_ACCESS_KEY_ID, AWS_REGION and S3_BUCKET in the settings.py so that AutoML EMR app can access s3
 # this access key needs to have the permission of handling the designated S3_BUCKET
 
 python3.9 init_db.py
@@ -197,7 +199,10 @@ python3.9 app.py
 
 * Set up port forwarding from local to remote EC2 server 
 ```
+Open another termimal, type
 ssh -i {PRIVATE_KEY}.pem -L 5000:localhost:5000 hadoop@{EMR MASTER EC2-IP}
+(in my case)
+yasukom@f8ffc22c5808 ~ % ssh -i .ssh/automlemr.pem -L 5000:localhost:5000 hadoop@54.187.34.129
 #access http://127.0.0.1:5000 via your browser
 ```
 
