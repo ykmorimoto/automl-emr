@@ -24,6 +24,7 @@ EMR pricing depends on the instance type and number of EC2 instances users selec
 * Users can review their uploaded CSV files in the summary view. 
 * Quality columns show them how input data look.
 * After ML modeling, area under the curve (AUC), precision, recall, and accuracy values are displayed.
+* For Spark in Local, SHapley Additive exPlanations (SHAP) is also generated in graph by clicking the ML model names, so that users can figire which category values impact the most in the ML modeling. SHAP is a method of explaining individual predictions. A positive SHAP value means a positive impact on prediction. In AutoML EMR, SHAP values are converted to absolute values, and displayed in a bar graph.
 
 # Users profile
 * Our target users are those who want to analyze data and have the results represented in multiple ML models.
@@ -104,8 +105,6 @@ Applied category variables
 Not applied category variables - too many missing values
 ![histgram](images/histgram_age.png)
 Not applied category variables - too many unique values
-![histgram](images/histgram_name.png)
-* Internally non-numerical expressions are converted to numerical expressions 1 or 0
 ![metrics](images/data_clearning_for_category_variables.png) 
 * Fit multiple ML models automatically and compare statistical scores
 ![metrics](images/metrics.png)
