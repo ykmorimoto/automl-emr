@@ -96,6 +96,9 @@ python app.py
 * Default selected string-type values, select appropriate values for "Category Variables", and set inappropriate values in "Unused Variables for Modeling". 
 ![data quality](images/data_quality2.png)
 
+* Uploaded large file via Spark on AmazonEMR, then selected string-type values, select appropriate values for "Category Variables", and set inappropriate values in "Unused Variables for Modeling". 
+![data quality](images/data_quality_fraund.png)
+
 * If you uploaded files via Spark on Amazon EMR, files have been uploaded into S3 bucket.
 ![data quality](images/s3_for_spark_on_amazonEMR.png)
 
