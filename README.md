@@ -108,6 +108,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 ### Display ML models in histgram for Spark in Local.
 <img src = "images/explainable_ai.png" width="800">
 <img src = "images/explainable_ai_lightGBM.png" width="800">
+<img src = "images/explainable_ai_GB.png" width="800">
 
 # Future enhancement
 
