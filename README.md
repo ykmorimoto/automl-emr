@@ -24,15 +24,16 @@ EMR pricing depends on the instance type and number of EC2 instances users selec
 * Users can review their uploaded CSV files in the summary view. 
 * Quality columns show them how input data look.
 * After ML modeling, area under the curve (AUC), precision, recall, and accuracy values are displayed.
-* For Spark in Local, SHapley Additive exPlanations (SHAP) is also generated in graph by clicking the ML model names, so that users can figire which category values impact the most in the ML modeling. SHAP is a method of explaining individual predictions. A positive SHAP value means a positive impact on prediction. In AutoML EMR, SHAP values are converted to absolute values, and displayed in a bar graph.
+* For Spark in Local, SHapley Additive exPlanations (SHAP) is also generated in histgram by clicking the ML model names, so that users can figire which category values impact the most in the ML modeling. SHAP is a method of explaining individual predictions. A positive SHAP value means a positive impact on prediction. In AutoML EMR, SHAP values are converted to absolute values, and displayed in a histgram.
 
 # Users profile
 * Our target users are those who want to analyze data and have the results represented in multiple ML models.
 * To run the AutoML EMR application, users should download required libraries and run Python modules (see instructions in README.md).
 
 # Data sources
-Comma-separated value (CSV) files can be uploaded for Spark in local or Spark on Amazon EMR. 
-Users can test the application with 
+Comma-separated value (CSV) files can be uploaded for Spark in Local or Spark on Amazon EMR. 
+Users can test the application with
+###
 For Spark in Local (small file samples)
 * titanic.csv (https://www.kaggle.com/c/titanic/data?select=train.csv)
 * heart.csv (https://www.kaggle.com/zhaoyingzhu/heartcsv?select=Heart.csv)
@@ -40,7 +41,7 @@ For Spark in Local (small file samples)
 For Spark on Amazon EMR (large file sample)
 * PS_20174392719_1491204439457_log.csv (https://www.kaggle.com/datasets/ealaxi/paysim1) 
 
-A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so on for Spark in Local or as 1.parquet, 2.parquet, and so on in S3 buckets for Spark on Amazon EMR depending on which applications you choose to run. These internal files are used for the system to proceed ML modeling.
+A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so on for Spark in Local, or as 1.parquet, 2.parquet, and so on in S3 buckets for Spark on Amazon EMR depending on which you choose to run. These internal files are used for the system to proceed ML modeling.
 
 # Variables for ML modeling
 ### Target variables
@@ -189,8 +190,8 @@ pip3 install --upgrade pip
 pip3 install -r requirements.txt
 
 cp settings_template.py settings.py
-# go open IAM in AWS Management Console, go to "Users" to set a new user name with Acess Key
-# using the above Access Key, fill AWS_ACCESS_KEY_ID, AWS_REGION and S3_BUCKET in the settings.py so that AutoML EMR app can access s3
+# go to IAM in AWS Management Console, go to "Users" to set a new user name with Acess Key, then download the Key information.
+# using the above Access Key, fill AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION and S3_BUCKET name in the settings.py so that AutoML EMR app can access S3
 # this access key needs to have the permission of handling the designated S3_BUCKET
 
 python3.9 init_db.py
