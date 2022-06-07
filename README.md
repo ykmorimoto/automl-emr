@@ -211,14 +211,14 @@ ssh -i {PRIVATE_KEY}.pem -L 5000:localhost:5000 hadoop@{EMR MASTER EC2-IP}
 yasukom@f8ffc22c5808 ~ % ssh -i .ssh/automlemr.pem -L 5000:localhost:5000 hadoop@54.187.34.129
 #access http://127.0.0.1:5000 via your browser
 ```
-<img src = "images/open_another_terminal.png" width="500">
 
-* If the above connection doesn't work, then
+* If the above connection doesn't work, or users have already set up ./ssh/config file, then
 ```
 Open another terminal, type
 ssh -N -L 5000:localhost:5000 {PRIVATE_KEY}
-Then open
-http://127.0.0.1:5000/
+(in my case)
+yasukom@f8ffc22c5808 ~ % ssh -N -L 5000:localhost:5000 automlemr
+#access http://127.0.0.1:5000/ via your browser
 ```
 
 * If connection to EMR gets broken pipe, then 
