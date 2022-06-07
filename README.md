@@ -88,6 +88,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 
 ### Provide useful comments to check data quality (missing value, uniques, and outliers).
 <img src = "images/data_quality.png" width="800">
+<img src = "images/data_quality_sample.png" width="800">
 
 ### Sample output with titanic.csv, default already selected string-type values. Select a value for "Target", re-select appropriate values for "Category Variables", and inappropriate values for "Unused Variables for Modeling". 
 <img src = "images/data_quality2.png" width="800">
@@ -99,6 +100,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 <img src = "images/s3_for_spark_on_amazonEMR.png" width="800">
 
 ### Visualize data distribution in histgram per variable, this is an example for Pclass data.
+<img src = "images/histgram_pclass.png" width="800">
 <img src = "images/histgram_age_from.png" width="800">
 <img src = "images/histgram_age.png" width="800">
 
