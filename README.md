@@ -199,6 +199,7 @@ cp settings_template.py settings.py
 python3.9 init_db.py
 python3.9 app.py
 ```
+<img src = "images/app_automlemr.png" width="800">
 
 * Set up port forwarding from local to remote EC2 server 
 ```
