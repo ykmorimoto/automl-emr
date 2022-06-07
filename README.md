@@ -48,7 +48,7 @@ A user’s uploaded files are stored in the data folder as 1.csv, 2.csv, and so 
 * The variable that AutoML EMR recommends from a list of prospects is the target (predictor) variable selected for ML modeling.
 
 ### Category variables
-* As a default, AutoML EMR detects variables that cannot be used for ML modeling because they are non-numerical expressions, such as cabin (C85, C123, etc.), embarked (S, C, and Q), name (Braund, Mr. Owner Harris, etc.), sex (male and female), and ticket (AJ5 21171, 113803, etc.). ]
+* As a default, AutoML EMR detects variables that cannot be used for ML modeling because they are non-numerical expressions, such as cabin (C85, C123, etc.), embarked (S, C, and Q), name (Braund, Mr. Owner Harris, etc.), and ticket (AJ5 21171, 113803, etc.). ]
 * In addition to default detection, the selection of more category variables is necessary. These variables should be assigned numerical expressions 1 or 0, and one of them is dropped by get_dummies function with drop_first = True.
 <img src = "images/data_clearning_for_category_variables.png" width="800">
 
