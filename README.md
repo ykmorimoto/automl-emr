@@ -199,7 +199,7 @@ cp settings_template.py settings.py
 python3.9 init_db.py
 python3.9 app.py
 ```
-<img src = "images/app_automlemr.png" width="800">
+<img src = "images/app_automlemr.png" width="1000">
 
 * Set up port forwarding from local to remote EC2 server 
 ```
@@ -209,6 +209,7 @@ ssh -i {PRIVATE_KEY}.pem -L 5000:localhost:5000 hadoop@{EMR MASTER EC2-IP}
 yasukom@f8ffc22c5808 ~ % ssh -i .ssh/automlemr.pem -L 5000:localhost:5000 hadoop@54.187.34.129
 #access http://127.0.0.1:5000 via your browser
 ```
+<img src = "images/open_another_terminal.png" width="500">
 
 * If the above connection doesn't work, then
 ```
@@ -216,4 +217,20 @@ Open another terminal, type
 ssh -N -L 5000:localhost:5000 {PRIVATE_KEY}
 Then open
 http://127.0.0.1:5000/
+```
+
+* If connection to EMR gets broken pipe, then 
+```
+Open another terminal, type
+rm -f .ssh/known_hosts
+rm -f .ssh/known_hosts.old
+
+run EMR appliations
+cd automl-emr
+python3.9 -m venv .
+source ./bin/activate
+
+python3.9 app.py
+
+then do set up port forwarding above
 ```
