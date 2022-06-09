@@ -227,12 +227,31 @@ Open another terminal, type
 rm -f .ssh/known_hosts
 rm -f .ssh/known_hosts.old
 
-run EMR appliations
+OR
+Main termial where you were running EMR, type
+ps aux | grep python
+kill hadoop_jobid
+
+then, in the same main terminal, run EMR appliations again
 cd automl-emr
 python3.9 -m venv .
 source ./bin/activate
-
+(skip python3.9 init_dp.py if you've already created input.db)
 python3.9 app.py
 
 then do set up port forwarding above
 ```
+
+* Spark log UI
+```
+After open http://127.0.0.1:5000/ on your browser, upload any files via Spark on Amazon EMR,
+
+then, open another terminal, type  
+
+ssh -i {PRIVATE_KEY}.pem -L 4040:localhost:4040 hadoop@{EMR MASTER EC2-IP}
+ssh -N -L 4040:localhost:4040 {PRIVATE_KEY}
+
+#access 127.0.0.1:4040 on your browser
+```
+<img src = "images/automlemr_sparklog_browser.png" width="1000">
+
